@@ -1,0 +1,49 @@
+{% extends 'Food/layout.html' %}
+
+{% block title %}
+Update
+{% endblock %}
+
+{% block body %}
+
+<div class = "col-6 updateform">
+<form action = {% url 'food:updateMyCertificate' %} method = "post">
+    {% csrf_token %}
+<h1> Update from my certificates </h1>
+<p>Please choose a certificate to Update</p>
+
+<select Name = "certificate" id = "" class = "dropDownList">
+
+    {% for cert in certi%}
+    <option value = "{{ cert.course.courseid }}">{{ cert.course.cname}}, {{ cert.course.ccompany }}</option>
+    {% endfor %}
+
+</select>
+
+<div class = "updatefield">
+<label for ="" class = "labelForm">Certificate Date:</label>
+    <input class="usernamefield" type="date" name = "cdate" required>
+</div>
+
+
+<div>
+    <button type = "submit" class = "deletebutton">Update</button>
+</div>
+
+
+
+
+
+</form> 
+
+
+
+<a href = "{% url 'food:view' %}">
+    <button class = "deleteformbackbutton">
+        Back
+    </button>
+</a> 
+</div>
+
+
+{% endblock %}

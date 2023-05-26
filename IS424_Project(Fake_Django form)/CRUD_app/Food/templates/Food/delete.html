@@ -1,0 +1,40 @@
+{% extends 'Food/layout.html' %}
+
+{% block title %}
+Delete
+{% endblock %}
+
+{% block body %}
+
+<div class = "col-6 deleteform">
+<form action = {% url 'food:deleteMyCertificate' %} method = "post">
+    {% csrf_token %}
+<h1> Delete from my certificates </h1>
+<p>Please choose a certificate to delete</p>
+
+<select Name = "certificate" id = "" class = "dropDownList" required>
+
+
+    {% for cert in certi%}
+    <option value = "{{ cert.course.courseid }}">{{ cert.course.cname}}, {{ cert.course.ccompany }}</option>
+    {% endfor %}
+
+</select>
+
+<div>
+<button type = "submit" class = "deletebutton">Delete</button>
+</div>
+
+</form> 
+
+
+
+<a href = "{% url 'food:view' %}">
+    <button class = "deleteformbackbutton">
+        Back
+    </button>
+</a> 
+</div>
+
+
+{% endblock %}

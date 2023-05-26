@@ -1,0 +1,42 @@
+{% extends 'Food/regestration.html' %}
+
+{% block title %}
+Login
+{% endblock %}
+
+{% block body %}
+
+<a href="https://imgbb.com/"><img src="https://i.ibb.co/RBN4YST/ksulogo-removebg-preview.png" alt="ksulogo-removebg-preview" width = "250px"></a>
+
+{% for message in messages %}
+    <div class="alert alert-info">
+        <h2> {{message}} </h2>
+    </div>
+{% endfor %}
+
+<div class = "form-box">
+    <div class = "row">
+        <div class = "col-lg-6 loginform">
+<form action = {% url 'food:login' %} method = "post">
+    {% csrf_token %}
+<h1 class = "lineH1"> Login </h1>
+
+
+<div>
+    <label for ="" class = "labelForm">UserName:</label>
+    {{ form.username }}
+    </div>
+
+<div>
+    <label for ="" class = "labelForm">Password:</label>
+    {{ form.password }}
+    </div>
+<button type = "submit" class = "loginbutton">Login</button>
+</form>
+<p class = "paragraphSection">Not a member? <a href = "{% url "food:signup" %}" class = "anchorLink">Signup</a></p>
+
+</div>
+</div>
+</div>
+
+{% endblock %}

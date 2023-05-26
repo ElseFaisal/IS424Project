@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <title>
+        {% block title %}
+        {% endblock %}    
+    </title>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link href='https://fonts.googleapis.com/css?family=Pangolin' rel='stylesheet'>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+
+    
+
+body{
+    background-color: #f2edd3;
+    font-family: 'Pangolin';
+}
+
+
+
+.row > .viewform {
+    text-align: center;
+    margin: 160px auto;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    height:500px;
+    padding: 30px;
+}
+
+.row > .addform {
+    text-align: center;
+    margin: 60px auto;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    height:450px;
+    padding: 30px;
+}
+
+.row > .deleteform {
+    text-align: center;
+    margin: 120px auto;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    height:300px;
+    padding: 30px;
+}
+
+
+.row > .updateform {
+    text-align: center;
+    margin: 120px auto;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    height:420px;
+    padding: 30px;
+}
+
+
+nav{
+    padding-right:15px;
+    padding-left:15px;
+    height:110px;
+    background:#009879;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+}
+
+nav .navbar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    height:100%;
+    width:100%;
+    margin:auto;
+}
+
+nav .navbar > ul{
+    display:flex;
+    list-style-type: none;
+}
+
+nav .navbar ul li {
+    margin: 30px;
+}
+
+nav .navbar ul button {
+    height:30px;
+    margin-top:32px;
+    background: #f2edd3;
+    color: black;
+    border: none;
+    border-radius: 3px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+
+
+
+nav .navbar ul li a {
+    color: white;
+    font-size: 24px;
+    text-decoration:none;
+}
+.active:hover{
+    border-bottom:2px solid white;
+    transition-delay:0.08s;     
+}
+
+
+
+.labelForm{
+    padding:10px; 
+    color:#009879; 
+    font-weight: bold;
+}
+
+
+.certificateNameField{
+    width: 82.5%;
+    padding: 10px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+.companyfield{
+    width: 80%;
+    padding: 10px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+.addbutton {
+    background: #009879;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 3px;
+    font-size: 20px;
+    cursor: pointer;
+    margin-top: 40px;
+    width:20%;
+}
+
+.addformbackbutton{
+    float: left; 
+    margin-top:40px;
+    background: #009879;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    font-size: 20px;
+    cursor: pointer;
+    width:10%;
+    padding: 5px;
+}
+
+a[href="https://imgbb.com/"]{
+    position:absolute; 
+    top:0; 
+    left:0
+}
+
+.alert{
+    color:red;
+}
+
+
+.viewbackbutton{
+    background-color:#009879;
+    color:#fff;
+    border: none;
+    border-radius: 3px;
+    font-size: 20px;
+    cursor: pointer;
+    width:10%;
+    margin-top:12px;
+    margin-left:60px;
+}
+
+
+
+.table-content { 
+    margin-left: auto;
+    margin-right: auto;
+    min-width:400px;
+    margin-top:120px;
+    border-radius: 5px 5px 0 0;
+    overflow:hidden;
+    box-shadow: 0 0 20px rgba(0,0,0,0.15);
+  }
+
+.table-content thead th {
+    background-color:#009879;
+    color:#fff;
+    text-align:left;
+}
+
+.table-content td , .table-content th{
+    padding:12px 15px;
+    font-size:18px;
+}
+
+.table-button{
+    background-color:#009879;
+    color:#fff;
+    border: 1px solid black;
+    border-radius: 3px;
+    
+}
+
+
+
+.menuHeader{
+    margin: 20px;
+}
+.menuHeader > h1{
+    font-weight:bold;
+}
+
+
+
+.detailsbackbutton button{ 
+    background-color:#009879;
+    color:#fff;
+    border: none;
+    border-radius: 3px;
+    font-size: 20px;
+    cursor: pointer;
+    width:20%;
+    margin-top:30px;
+    margin-left:60px;
+}
+
+.table-content tbody tr{
+    border-bottom: 1px solid #dddddd;
+    background-color: white;
+}
+
+.table-content tbody tr:nth-of-type(even){
+    background-color:#f3f3f3;
+    font-weight:bold;
+    color:#009879;
+}
+
+.table-content tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+
+.detailsaddDiv{
+    text-align:center;
+}
+
+.detailsHeader{
+    text-align:center;
+    margin-top:40px;
+}
+
+.detailsform{
+    text-align:center;
+}
+
+
+.detailsAddButton{
+    background: #009879;
+    color: #fff;
+    border: none;
+    width:6%;
+    padding: 4px 0px;
+    margin-top:25px;
+}
+
+
+.detailsDateField{
+    width: 8%;
+    padding: 4px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    margin-right:20px;
+}
+
+.dropDownList{
+    margin-top: 8px;
+    width: 30%;
+    padding: 10px;
+    border: 2px solid #009879;
+    border-radius: 3px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+.deletebutton{ 
+    background: #009879;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    font-size: 20px;
+    cursor: pointer;
+    margin-top: 10px;
+    width:10%;
+}
+
+.viewbuttons{
+    text-align: center;
+}
+
+.viewbuttons a{
+    text-decoration: none;
+}
+
+.viewbuttons button{
+    background: #009879;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    font-size: 20px;
+    cursor: pointer;
+    width:5%;
+    padding: 5px;
+    margin: 15px;
+}
+
+
+.deleteformbackbutton{
+    float: left;
+    background: #009879;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    font-size: 20px;
+    cursor: pointer;
+    width:10%;
+    padding: 5px;
+}
+
+.updatefield{
+    margin-top:20px;
+}
+
+
+</style>
+
+
+
+
+</head>
+
+
+<body>
+    
+
+    <div class = "form-box">
+        <div class = "row">
+            <div class = "col-12">
+                <nav>
+    
+                <div class = "navbar"> {% comment %} The navigation {% endcomment %}
+                <div><a href="https://imgbb.com/"><img src="https://i.ibb.co/RBN4YST/ksulogo-removebg-preview.png" alt="ksulogo-removebg-preview" width = "250px"></a></div>
+    
+                <ul>
+                <li> <a class = active href="{% url 'food:menu' %}"> Home </a> </li>    
+                <li> <a class = active href="{% url 'food:view' %}"> View </a> </li>
+                <li> <a class = active href="{% url 'food:add' %}"> Add </a> </li>
+                <li> <a class = active href="{% url 'food:updateMenuCertificate' %}"> Update </a> </li>
+                <li> <a class = active href="{% url 'food:deleteMenuCertificate' %}"> Delete </a> </li>
+
+                <a href = "{% url 'food:logout' %}"><button>Logout</button></a>
+
+    
+                </nav>
+    </div>
+
+    {% block body %}
+    {% endblock %}
+
+</div>
+</div>
+
+
+</body>
+</html>

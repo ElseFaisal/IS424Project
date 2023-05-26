@@ -1,0 +1,56 @@
+{% extends 'Food/layout.html' %}
+
+{% block title %}
+Details
+{% endblock %}
+
+{% block body %}
+
+       <div class = "col-12 detailsHeader">
+
+      <h1>Details of <strong>{{certi.ccompany}}'s {{certi.cname}}</strong> certificate</h1>
+    </div>
+
+
+    <div class = "col-12">
+      
+              <table class = "table-content">
+                  <thead>
+                        <th>Certificate Name</th>
+                        <th>Company</th>
+                        <th>Website</th>
+                        <th>Status</th> <!-- New Added , it might changed -->
+                        <th>Accredited</th> <!-- New Added , it might changed -->
+                  </thead>
+                            <tbody>
+                                    <tr>
+                                          <td>{{ certi.cname }}</td>
+                                          <td>{{ certi.ccompany }}</td>
+                                          <td> coursera.com</td> <!-- New Added , it will changed -->
+                                          <td> Finished</td> <!-- New Added , it will changed -->
+                                          <td> YES </td> <!-- New Added , it will changed -->
+                                    </tr>
+
+                                
+
+                            </tbody>
+          </table>
+          
+    </div>
+
+    <div class = "col-12 detailsaddDiv">
+
+      <a href = "{% url 'food:detailsadd' certi.courseid %}"><button type = "submit" class = "detailsAddButton">Add</button></a>
+
+    </div>
+    
+
+
+<div class = "col-4 detailsbackbutton">
+<a href = "{% url 'food:menu' %}">
+      <button>
+          Back
+      </button>
+</div>
+
+{% endblock %}

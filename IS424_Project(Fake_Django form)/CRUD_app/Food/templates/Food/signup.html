@@ -1,0 +1,64 @@
+{% extends 'Food/regestration.html' %}
+
+{% block title %}
+SignUp
+{% endblock %}
+
+{% block body %}
+
+
+
+<a href="https://imgbb.com/"><img src="https://i.ibb.co/RBN4YST/ksulogo-removebg-preview.png" alt="ksulogo-removebg-preview" width = "250px"></a>   
+
+
+{% for message in messages %}
+    <div class="alert alert-info">
+        <h2> {{message}} </h2>
+    </div>
+{% endfor %}
+
+<div class = "form-box">
+<div class = "row">
+<div class = "col-6 signupform">
+<form action = {% url 'food:signup' %} method = "post">
+    {% csrf_token %}
+<h1 class = "lineH1"> SignUp </h1>
+
+<div>
+    <label for ="" class = "labelForm">First Name:</label>
+    {{ form.fname }}
+
+    
+    <label for ="" class = "labelForm">Last Name:</label>
+    {{ form.lname }}
+    </div>
+
+<div>
+    <label for ="" class = "labelForm" >UserName:</label>
+    {{ form.username }}
+    </div>
+    
+<div>
+        <label for ="" style = "padding:10px; margin-left:10px; font-family: Arial, sans-serif; color:#009879; font-weight: bold;">Email:</label>
+        {{ form.email }}
+        </div>
+        {% for error in form.email.errors %}
+         <p>{{ error }}</p>
+    {% endfor %}
+        
+<div>
+        <label for ="" class = "labelForm" >Password:</label>
+        {{ form.password }}
+        </div>
+<button type = "submit" class = "createbutton">Create Account</button>
+</form>
+
+<!-- ADDED -->
+<p class = "paragraphSection">Are you a member? <a href = "{% url "food:login" %}" class = "anchorLink">Login</a></p>
+<!-- ADDED -->
+
+</div>
+</div>
+</div>
+
+{% endblock %}

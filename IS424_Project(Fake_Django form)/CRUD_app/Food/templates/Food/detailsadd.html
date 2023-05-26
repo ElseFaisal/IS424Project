@@ -1,0 +1,43 @@
+{% extends 'Food/layout.html' %}
+
+{% block title %}
+Details
+{% endblock %}
+
+{% block body %}
+
+
+
+            <div class = "col-12 detailsHeader">
+
+                <h1>Adding <strong>{{certi.ccompany}}'s {{certi.cname}}</strong> certificate</h1>
+              </div>
+
+    
+    
+    <div class = "col-12 detailsform">
+
+     <form action = "{% url 'food:detailsadd' certi.courseid %}" method = "post">
+      {% csrf_token %} 
+       
+      <label for ="" class = "labelForm">Date</label>
+      {{ dateform.cdate }} 
+    
+      <a href = "{% url 'food:detailsadd' certi.courseid %}"><button type = "submit" class = "detailsAddButton">Add</button></a>
+    
+      
+      
+      </form>
+
+        </div>
+
+    
+
+        <div class = "col-4 detailsbackbutton">
+          <a href = "{% url 'food:details' certi.courseid %}">
+                <button>
+                    Back
+                </button>
+          </div>
+
+{% endblock %}
