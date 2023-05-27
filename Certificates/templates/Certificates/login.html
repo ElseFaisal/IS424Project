@@ -1,0 +1,45 @@
+{% extends 'certificates/regestration.html' %}
+
+{% block title %}
+Login
+{% endblock %}
+
+{% block body %}
+
+<a id="logoId"><img src="https://i.ibb.co/M2Nrtxt/C0-EE5209-8-DE8-49-D2-8-C80-90-EDD456-AF9-B.png" alt="SHAHADTY's Logo" width = "150px"></a>
+
+
+<div class = "form-box">
+    <div class = "row">
+        <div class = "col-lg-6 loginform">
+            
+            {% for message in messages %}
+    <div class="alert alert-info">
+        <h2> {{message}} </h2>
+    </div>
+{% endfor %}
+
+
+<form action = {% url 'certificates:login' %} method = "post">
+    {% csrf_token %}
+<h1 class = "lineH1"> Login </h1>
+
+
+<div>
+    <label for ="" class = "labelForm">Username:</label>
+    {{ form.username }}
+    </div>
+
+<div>
+    <label for ="" class = "labelForm">Password:</label>
+    {{ form.password }}
+    </div>
+<button type = "submit" class = "loginbutton">Login</button>
+</form>
+<p class = "paragraphSection">Not a member? <a href = "{% url "certificates:signup" %}" class = "anchorLink">Signup</a></p>
+
+</div>
+</div>
+</div>
+
+{% endblock %}

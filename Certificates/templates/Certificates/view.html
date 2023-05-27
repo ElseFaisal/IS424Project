@@ -1,0 +1,83 @@
+{% extends 'certificates/layout.html' %}
+
+
+{% block title %}
+View
+{% endblock %}
+
+
+
+{% block body %}
+
+  
+  <div class = "col-12">
+  
+
+      {% if nocertificates %}
+
+      <div class = "col-12 nocertificatesheader">
+      <h1> You don't have any certificates :)</h1>
+      </div>
+
+      {% else %}
+      <table class = "table-content">
+            <thead>
+                  <th>Certificate Name</th>
+                  <th>Certificate Date</th>
+                  <th>Company</th>
+                  <th>Hours</th>
+                  <th>Field</th>
+                  <th>Accredited</th>
+                  <th>End Date</th>
+            </thead>
+                      <tbody>
+                        {% for cert in certi %}
+                              <tr>
+                                    <td>{{ cert.course.cname }}</td> <!-- New Added , cert is object from granted table -->
+                                    <td>{{ cert.grantedDate }}</td>  <!-- New Added , cert is object from granted table -->
+                                    <td>{{ cert.course.ccompany }}</td> <!-- New Added , cert is object from granted table -->
+                                    <td>{{ cert.course.chours }}</td> <!-- New Added , cert is object from granted table -->
+                                    <td>{{ cert.course.cfield }}</td>  <!-- New Added , cert is object from granted table -->
+                                    <td>{{ cert.course.accredited }}</td> <!-- New Added , cert is object from granted table -->
+                                    <td>{{ cert.cEndDate }}</td> <!-- New Added , cert is object from granted table -->
+                              </tr>
+        
+                              {% endfor %}
+        
+                      </tbody>
+        </table>
+
+        
+        
+  </div>
+
+<div class = "col-12 viewbuttons">
+      <a href = "{% url 'certificates:deleteMyCertificate' %}"> 
+            <button>
+                Delete
+            </button>
+
+            <a href = "{% url 'certificates:updateMyCertificate' %}">
+                  <button>
+                      Update
+                  </button>
+
+</div>
+
+  
+  <div class = "col-8">
+      <a href = "{% url 'certificates:menu' %}" style = "text-decoration: none;">
+            <button class = "viewbackbutton">
+                Back
+            </button>
+      
+      </div>
+
+      {% endif %}
+  
+  </div>
+  </div>
+
+  
+
+{% endblock %}

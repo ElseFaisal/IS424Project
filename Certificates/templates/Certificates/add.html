@@ -1,0 +1,48 @@
+{% extends 'certificates/layout.html' %}
+
+{% block title %}
+Add
+{% endblock %}
+
+{% block body %}
+
+<div class = "col-6 addform">
+<form action = {% url 'certificates:add' %} method = "post">
+    {% csrf_token %}
+<h1 class="lineH1"> Add Certificate </h1>
+
+<div>
+<label for ="" class = "innerLabelForm">Name</label>
+{{ form.cname }}
+</div>
+
+<div>
+<label for ="" class = "innerLabelForm">Company</label>
+{{ form.ccompany }}
+
+<label for ="" class = "innerLabelForm">Hours</label>
+{{ form.chours }}
+</div>
+    
+    <div>
+    <label for ="" class = "innerLabelForm">Field</label>
+    {{ form.cfield }}
+   
+    <label for ="" class = "innerLabelForm">Accredited</label>
+    {{ form.accredited }}
+    </div>
+    
+
+<button type = "submit" class = "addbutton">Add</button>
+
+</form>
+
+<a href = "{% url 'certificates:menu' %}">
+    <button class = "addformbackbutton">
+        Back
+    </button>
+</a>
+</div>
+
+
+{% endblock %}

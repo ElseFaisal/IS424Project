@@ -1,0 +1,71 @@
+{% extends 'certificates/layout.html' %}
+
+{% block title %}
+Update
+{% endblock %}
+
+{% block body %}
+
+<div class = "col-6 updateform">
+
+    {% for message in messages %}
+    <div class="alert alert-info">
+        <h2> {{message}} </h2>
+    </div>
+{% endfor %}
+
+
+<form action = {% url 'certificates:updateMenuCertificate' %} method = "post">
+    {% csrf_token %}
+<h1 class="lineH1"> Update certificates from menu </h1>
+<p class="paragraph">Please choose a certificate to Update</p>
+
+<select Name = "certificate" id = "" class = "dropDownList">
+
+    {% for cert in certi%}
+    <option value = "{{ cert.courseid }}">{{ cert.cname}}, {{ cert.ccompany }}</option>
+    {% endfor %}
+
+</select>
+
+<div class = "updatefield">
+
+<label for ="" class = "innerLabelForm">Certificate Name</label>
+<input type="text" name = "cname" required>
+
+<label for ="" class = "innerLabelForm">Company</label>
+    <input type="text" name = "ccompany" required>
+
+    <label for ="" class = "innerLabelForm">Hours</label>
+<input type="text" name = "chours" required>
+
+<label for ="" class = "innerLabelForm">Field</label>
+    <input class="updateCoursefield" type="text" name = "cfield" required>
+
+    <label for ="" class = "innerLabelForm">Accredited</label>
+<input type="text" name = "accredited" required>
+
+</div>
+
+
+<div>
+    <button type = "submit" class = "deletebutton">Update</button>
+</div>
+
+
+
+
+
+</form> 
+
+
+
+<a href = "{% url 'certificates:menu' %}">
+    <button class = "deleteformbackbutton">
+        Back
+    </button>
+</a> 
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends 'certificates/layout.html' %}
+
+{% block title %}
+Details
+{% endblock %}
+
+{% block body %}
+
+
+
+            <div class = "col-12 detailsHeader">
+
+                <h1>Adding <strong>{{certi.ccompany}}'s {{certi.cname}}</strong> certificate</h1>
+              </div>
+
+    
+    
+    <div class = "col-12 detailsform">
+
+     <form action = "{% url 'certificates:detailsadd' certi.courseid %}" method = "post">
+      {% csrf_token %} 
+       
+      <label for ="" class = "innerLabelMaroonForm">Granted Date</label>
+      {{ dateform.cdate }} 
+
+      <label for ="" class = "innerLabelMaroonForm">End Date (Optional)</label>
+      {{ dateform.cEndDate }} 
+
+      <div>
+      <a href = "{% url 'certificates:detailsadd' certi.courseid %}"><button type = "submit" class = "detailsAddButton">Add</button></a>
+      </div>
+      
+      
+      </form>
+
+        </div>
+
+    
+
+        <div class = "col-4 detailsbackbutton">
+          <a href = "{% url 'certificates:details' certi.courseid %}">
+                <button>
+                    Back
+                </button>
+          </div>
+
+{% endblock %}
