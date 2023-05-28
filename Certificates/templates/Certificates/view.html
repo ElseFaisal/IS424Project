@@ -1,4 +1,4 @@
-{% extends 'certificates/layout.html' %}
+{% extends 'Certificates/layout.html' %}
 
 
 {% block title %}
@@ -13,10 +13,10 @@ View
   <div class = "col-12">
   
 
-      {% if nocertificates %}
+      {% if noCertificates %}
 
-      <div class = "col-12 nocertificatesheader">
-      <h1> You don't have any certificates :)</h1>
+      <div class = "col-12 noCertificatesheader">
+      <h1> You don't have any Certificates :)</h1>
       </div>
 
       {% else %}
@@ -52,12 +52,12 @@ View
   </div>
 
 <div class = "col-12 viewbuttons">
-      <a href = "{% url 'certificates:deleteMyCertificate' %}"> 
+      <a href = "{% url 'Certificates:deleteMyCertificate' %}"> 
             <button>
                 Delete
             </button>
 
-            <a href = "{% url 'certificates:updateMyCertificate' %}">
+            <a href = "{% url 'Certificates:updateMyCertificate' %}">
                   <button>
                       Update
                   </button>
@@ -66,7 +66,7 @@ View
 
   
   <div class = "col-8">
-      <a href = "{% url 'certificates:menu' %}" style = "text-decoration: none;">
+      <a href = "{% url 'Certificates:menu' %}" style = "text-decoration: none;">
             <button class = "viewbackbutton">
                 Back
             </button>

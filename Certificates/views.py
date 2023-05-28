@@ -88,7 +88,7 @@ def signin(request):
                 login(request,user)
                 cert = certificate.objects.exclude(users = request.user)
                 render(request,'Certificates/menu.html',{"name":userN.capitalize() , "certi":cert})
-                return HttpResponseRedirect(reverse("certificates:menu"))
+                return HttpResponseRedirect(reverse("Certificates:menu"))
             else:
                 messages.error(request,"Username OR password is incorrect!") # New Added
         
@@ -103,7 +103,7 @@ def signin(request):
 
 def menu(request):
     if not request.user.is_authenticated:
-        return HttpResponseRedirect(reverse("certificates:login"))
+        return HttpResponseRedirect(reverse("Certificates:login"))
     
     user = request.user
     cert = certificate.objects.exclude(users = user) # New Added
@@ -111,7 +111,7 @@ def menu(request):
     if len(cert) != 0:
         return render(request,'Certificates/menu.html' , {"certi":cert , "name":request.user.first_name.capitalize()})
     else:
-        return render(request,'Certificates/menu.html' , {"nocertificates":len(cert) == 0 , "name":request.user.first_name.capitalize()})
+        return render(request,'Certificates/menu.html' , {"noCertificates":len(cert) == 0 , "name":request.user.first_name.capitalize()})
 
 
 
@@ -120,7 +120,7 @@ def menu(request):
 def add(request):
     # Added
     if not request.user.is_authenticated:
-        return HttpResponseRedirect(reverse("certificates:login"))
+        return HttpResponseRedirect(reverse("Certificates:login"))
     # Added
     
     else:
@@ -151,7 +151,7 @@ def add(request):
 def view(request):
     # Added
     if not request.user.is_authenticated:
-        return HttpResponseRedirect(reverse("certificates:login"))
+        return HttpResponseRedirect(reverse("Certificates:login"))
     # Added
     
     user = request.user
@@ -160,7 +160,7 @@ def view(request):
     if len(grantedCert) != 0:
         return render(request,"Certificates/view.html",{"certi":grantedCert})
     else:
-        return render(request,"Certificates/view.html",{"nocertificates":len(grantedCert) == 0})
+        return render(request,"Certificates/view.html",{"noCertificates":len(grantedCert) == 0})
         
         
 
@@ -188,7 +188,7 @@ def detailsAdd(request,courseid):
             cEndDate = formdata.cleaned_data['cEndDate']
             g= granted(course = cert , user = user , grantedDate = cdate , cEndDate = cEndDate)
             g.save()
-            return HttpResponseRedirect(reverse("certificates:menu"))
+            return HttpResponseRedirect(reverse("Certificates:menu"))
 
     return render(request , 'Certificates/detailsadd.html' , {"certi":cert , "dateform":detailsAddCerti()})
 
@@ -196,13 +196,13 @@ def detailsAdd(request,courseid):
 
 def deleteMyCertificate(request):
     if not request.user.is_authenticated:
-        return HttpResponseRedirect(reverse("certificates:login"))
+        return HttpResponseRedirect(reverse("Certificates:login"))
     else:
         if request.method == "POST":
             courseid = int(request.POST["certificate"])
             course = certificate.objects.get(courseid = courseid)
             granted.objects.get(user = request.user,course = course).delete()
-            return HttpResponseRedirect(reverse("certificates:view"))
+            return HttpResponseRedirect(reverse("Certificates:view"))
     
     user = request.user
     grantedCert = granted.objects.filter(user = user) # New Added
@@ -212,12 +212,12 @@ def deleteMyCertificate(request):
 
 def deleteMenuCertificate(request):
     if not request.user.is_authenticated:
-        return HttpResponseRedirect(reverse("certificates:login"))
+        return HttpResponseRedirect(reverse("Certificates:login"))
     else:
         if request.method == "POST":
             courseid = int(request.POST["certificate"])
             certificate.objects.get(courseid = courseid).delete()
-            return HttpResponseRedirect(reverse("certificates:menu"))
+            return HttpResponseRedirect(reverse("Certificates:menu"))
     
     publicCertificate = certificate.objects.all()# New Added
      
@@ -227,7 +227,7 @@ def deleteMenuCertificate(request):
 
 def updateMyCertificate(request):
     if not request.user.is_authenticated:
-        return HttpResponseRedirect(reverse("certificates:login"))
+        return HttpResponseRedirect(reverse("Certificates:login"))
     
     else:
         if request.method == "POST":
@@ -237,7 +237,7 @@ def updateMyCertificate(request):
             cdate = request.POST['cdate']
             cc.grantedDate = str(cdate)
             cc.save()
-            return HttpResponseRedirect(reverse("certificates:view"))
+            return HttpResponseRedirect(reverse("Certificates:view"))
             
             
                 
@@ -251,7 +251,7 @@ def updateMyCertificate(request):
 
 def updateMenuCertificate(request):
     if not request.user.is_authenticated:
-        return HttpResponseRedirect(reverse("certificates:login"))
+        return HttpResponseRedirect(reverse("Certificates:login"))
     
     else:
         try:
@@ -271,7 +271,7 @@ def updateMenuCertificate(request):
                 c.accredited = accredited
                 
                 c.save()
-                return HttpResponseRedirect(reverse("certificates:menu"))
+                return HttpResponseRedirect(reverse("Certificates:menu"))
         except ValueError:
             messages.error(request,"Make sure you type all fields correctly!")
             
@@ -287,7 +287,7 @@ def updateMenuCertificate(request):
 def logout_view(request):
     # Added
     if not request.user.is_authenticated:
-        return HttpResponseRedirect(reverse("certificates:login"))
+        return HttpResponseRedirect(reverse("Certificates:login"))
     # Added
     
     logout(request)

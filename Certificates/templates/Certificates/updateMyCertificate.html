@@ -1,4 +1,4 @@
-{% extends 'certificates/layout.html' %}
+{% extends 'Certificates/layout.html' %}
 
 {% block title %}
 Update
@@ -7,9 +7,9 @@ Update
 {% block body %}
 
 <div class = "col-6 updateform">
-<form action = {% url 'certificates:updateMyCertificate' %} method = "post">
+<form action = {% url 'Certificates:updateMyCertificate' %} method = "post">
     {% csrf_token %}
-<h1 class = "lineH1"> Update from my certificates </h1>
+<h1 class = "lineH1"> Update from my Certificates </h1>
 <p class = "paragraph">Please choose a certificate to Update</p>
 
 <select Name = "certificate" id = "" class = "dropDownList">
@@ -38,7 +38,7 @@ Update
 
 
 
-<a href = "{% url 'certificates:view' %}">
+<a href = "{% url 'Certificates:view' %}">
     <button class = "deleteformbackbutton">
         Back
     </button>

@@ -1,4 +1,4 @@
-{% extends 'certificates/layout.html' %}
+{% extends 'Certificates/layout.html' %}
 
 {% block title %}
 Details
@@ -17,7 +17,7 @@ Details
     
     <div class = "col-12 detailsform">
 
-     <form action = "{% url 'certificates:detailsadd' certi.courseid %}" method = "post">
+     <form action = "{% url 'Certificates:detailsadd' certi.courseid %}" method = "post">
       {% csrf_token %} 
        
       <label for ="" class = "innerLabelMaroonForm">Granted Date</label>
@@ -27,7 +27,7 @@ Details
       {{ dateform.cEndDate }} 
 
       <div>
-      <a href = "{% url 'certificates:detailsadd' certi.courseid %}"><button type = "submit" class = "detailsAddButton">Add</button></a>
+      <a href = "{% url 'Certificates:detailsadd' certi.courseid %}"><button type = "submit" class = "detailsAddButton">Add</button></a>
       </div>
       
       
@@ -38,7 +38,7 @@ Details
     
 
         <div class = "col-4 detailsbackbutton">
-          <a href = "{% url 'certificates:details' certi.courseid %}">
+          <a href = "{% url 'Certificates:details' certi.courseid %}">
                 <button>
                     Back
                 </button>

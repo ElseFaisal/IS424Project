@@ -1,4 +1,4 @@
-{% extends 'certificates/regestration.html' %}
+{% extends 'Certificates/regestration.html' %}
 
 {% block title %}
 SignUp
@@ -22,7 +22,7 @@ SignUp
 {% endfor %}
 
 
-<form action = {% url 'certificates:signup' %} method = "post">
+<form action = {% url 'Certificates:signup' %} method = "post">
     {% csrf_token %}
 <h1 class = "lineH1"> SignUp </h1>
 
@@ -56,7 +56,7 @@ SignUp
 </form>
 
 <!-- ADDED -->
-<p class = "paragraphSection">Are you a member? <a href = "{% url "certificates:login" %}" class = "anchorLink">Login</a></p>
+<p class = "paragraphSection">Are you a member? <a href = "{% url "Certificates:login" %}" class = "anchorLink">Login</a></p>
 <!-- ADDED -->
 
 </div>

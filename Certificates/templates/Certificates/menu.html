@@ -1,4 +1,4 @@
-{% extends 'certificates/layout.html' %}
+{% extends 'Certificates/layout.html' %}
 
 {% block title %}
 Menu
@@ -14,10 +14,10 @@ Menu
 <div class = "col-12">
 
 
-      {% if nocertificates %}
+      {% if noCertificates %}
 
-      <div class = "col-12 nocertificatesheader">
-      <h1> There are no certificates at this time :)</h1>
+      <div class = "col-12 noCertificatesheader">
+      <h1> There are no Certificates at this time :)</h1>
       </div>
 
       {% else %}
@@ -32,7 +32,7 @@ Menu
                               <tr>
                                     <td>{{ cert.cname }}</td>
                                     <td>{{ cert.ccompany }}</td>
-                                    <td><a href = "{% url 'certificates:details' cert.courseid %}"><button class = "table-button">Click</button></a></td> <!-- New Added -->
+                                    <td><a href = "{% url 'Certificates:details' cert.courseid %}"><button class = "table-button">Click</button></a></td> <!-- New Added -->
                               </tr>
 
                               {% endfor %}

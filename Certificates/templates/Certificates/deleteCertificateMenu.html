@@ -1,4 +1,4 @@
-{% extends 'certificates/layout.html' %}
+{% extends 'Certificates/layout.html' %}
 
 {% block title %}
 Delete
@@ -7,7 +7,7 @@ Delete
 {% block body %}
 
 <div class = "col-6 deleteform">
-<form action = {% url 'certificates:deleteMenuCertificate' %} method = "post">
+<form action = {% url 'Certificates:deleteMenuCertificate' %} method = "post">
     {% csrf_token %}
 <h1 class="lineH1"> Delete Certificate from menu </h1>
 <p class="paragraph">Please choose a certificate to delete</p>
@@ -30,7 +30,7 @@ Delete
 
 
 
-<a href = "{% url 'certificates:menu' %}">
+<a href = "{% url 'Certificates:menu' %}">
     <button class = "deleteformbackbutton">
         Back
     </button>

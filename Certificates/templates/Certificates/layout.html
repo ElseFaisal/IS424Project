@@ -259,12 +259,12 @@ a[id="logoId"]{
     font-weight:bold;
 }
 
-.nocertificatesheader{
+.noCertificatesheader{
     text-align:center;
     color:#502029;
     margin-top:40px;
 }
-.nocertificatesheader h1 {
+.noCertificatesheader h1 {
     font-weight:bold;
 }
 
@@ -442,16 +442,16 @@ a[id="logoId"]{
                 <nav>
     
                 <div class = "navbar"> {% comment %} The navigation {% endcomment %}
-                <div><a id="logoId" href="{% url 'certificates:menu' %}"><img src="https://i.ibb.co/M2Nrtxt/C0-EE5209-8-DE8-49-D2-8-C80-90-EDD456-AF9-B.png" alt="SHAHADTY's Logo" width = "115px"></a></div>                {% comment %} {% endcomment %} 
+                <div><a id="logoId" href="{% url 'Certificates:menu' %}"><img src="https://i.ibb.co/M2Nrtxt/C0-EE5209-8-DE8-49-D2-8-C80-90-EDD456-AF9-B.png" alt="SHAHADTY's Logo" width = "115px"></a></div>                {% comment %} {% endcomment %} 
 
                 <ul>
-                <li> <a class = active href="{% url 'certificates:menu' %}"> Home </a> </li>    
-                <li> <a class = active href="{% url 'certificates:view' %}"> View </a> </li>
-                <li> <a class = active href="{% url 'certificates:add' %}"> Add </a> </li>
-                <li> <a class = active href="{% url 'certificates:updateMenuCertificate' %}"> Update </a> </li>
-                <li> <a class = active href="{% url 'certificates:deleteMenuCertificate' %}"> Delete </a> </li>
+                <li> <a class = active href="{% url 'Certificates:menu' %}"> Home </a> </li>    
+                <li> <a class = active href="{% url 'Certificates:view' %}"> View </a> </li>
+                <li> <a class = active href="{% url 'Certificates:add' %}"> Add </a> </li>
+                <li> <a class = active href="{% url 'Certificates:updateMenuCertificate' %}"> Update </a> </li>
+                <li> <a class = active href="{% url 'Certificates:deleteMenuCertificate' %}"> Delete </a> </li>
 
-                <a href = "{% url 'certificates:logout' %}"><button>Logout</button></a>
+                <a href = "{% url 'Certificates:logout' %}"><button>Logout</button></a>
 
     
                 </nav>

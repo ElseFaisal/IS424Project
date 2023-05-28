@@ -1,4 +1,4 @@
-{% extends 'certificates/layout.html' %}
+{% extends 'Certificates/layout.html' %}
 
 {% block title %}
 Details
@@ -40,14 +40,14 @@ Details
 
     <div class = "col-12 detailsaddDiv">
 
-      <a href = "{% url 'certificates:detailsadd' certi.courseid %}"><button type = "submit" class = "detailsAddButton">Add</button></a>
+      <a href = "{% url 'Certificates:detailsadd' certi.courseid %}"><button type = "submit" class = "detailsAddButton">Add</button></a>
 
     </div>
     
 
 
 <div class = "col-4 detailsbackbutton">
-<a href = "{% url 'certificates:menu' %}">
+<a href = "{% url 'Certificates:menu' %}">
       <button>
           Back
       </button>
